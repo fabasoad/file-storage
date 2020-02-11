@@ -1,0 +1,44 @@
+version: "3.7"
+services:
+  filestorage-redis:
+    image: filestorage/redis:${VERSION}
+    hostname: filestorage-redis
+    container_name: filestorage-redis
+    build:
+      context: redis
+    env_file:
+      - env/redis.env
+    volumes:
+      - ../data/redis:/data
+    entrypoint: /docker-entrypoint.sh
+    networks:
+      - filestorage-network
+  
+  filestorage-app:
+    image: filestorage/app:${VERSION}
+    hostname: filestorage-app
+    container_name: filestorage-app
+    build:
+      context: app
+    env_file:
+      - env/redis.env
+    environment:
+      - FILESTORAGE_BACKEND_PORT=${PORT}
+      - FILESTORAGE_PATH=${FILESTORAGE_PATH}
+    ports:
+      - ${PORT}:${PORT}
+    volumes:
+      - ../file-storage-backend:/app
+      - ../file-storage-frontend:/app-frontend
+      - ../data/files:${FILESTORAGE_PATH}
+    entrypoint: /docker-entrypoint.sh
+    depends_on:
+      - filestorage-redis
+    links:
+      - filestorage-redis
+    networks:
+      - filestorage-network
+
+networks:
+  filestorage-network:
+      driver: bridge

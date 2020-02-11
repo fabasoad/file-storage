@@ -1,0 +1,5 @@
+aiohttp==3.6.2
+aiohttp-devtools==0.13.1
+click==7.0
+redis==3.4.1
+requests==2.22.0
