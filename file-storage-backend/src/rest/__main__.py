@@ -7,7 +7,7 @@ from .system_resources import SystemResource
 from .filestorage_resources import FileStorageResource
 
 DEFAULT_HOST = '0.0.0.0'
-DEFAULT_PORT = 8081
+DEFAULT_PORT = 8080
 
 host = os.environ.get('FILESTORAGE_BACKEND_HOST', DEFAULT_HOST)
 port = os.environ.get('FILESTORAGE_BACKEND_PORT', DEFAULT_PORT)

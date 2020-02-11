@@ -10,10 +10,9 @@ class FileStorageResource:
         self.log = logging.getLogger('FileStorageResource')
         self.service = FileStorageService()
         self.routes = [
-            web.get('/', self.index),
-            web.get('/dist/{filename}.js', self.index_js),
-            web.get('/dist/{filename}.css', self.index_css),
+            web.get('/{folder}/{filename}.{ext}', self.index_file),
             web.get('/files', self.get_files),
+            web.get('/', self.index),
             web.post('/files/{name}', self.upload_file),
             web.delete('/files/{name}', self.delete_file)
         ]
@@ -24,18 +23,28 @@ class FileStorageResource:
             text=index_html.read(),
             content_type='text/html')
 
-    async def index_js(self, request):
-        return await self._index_file(request, '.js', 'application/json')
-
-    async def index_css(self, request):
-        return await self._index_file(request, '.css', 'text/css')
-
-    async def _index_file(self, request, ext, content_type):
+    async def index_file(self, request):
+        ext_dict = {
+            'css': 'text/css',
+            'js': 'application/javascript',
+            'png': 'image/png',
+            'map': 'text/plain'
+        }
         filename = request.match_info['filename']
-        content = open(os.path.join('public', 'dist', filename + ext), "r")
+        ext = request.match_info['ext']
+        folder = request.match_info['folder']
+        content = open(os.path.join('public', folder, '{}.{}'.format(filename, ext)), "r", encoding="utf-8")
         return web.Response(
             text=content.read(),
-            content_type=content_type)
+            content_type=ext_dict[ext])
+
+    async def index_img(self, request):
+        filename = request.match_info['filename']
+        ext = request.match_info['ext']
+        content = open(os.path.join('public', 'images', '{}.{}'.format(filename, ext)), "r")
+        return web.Response(
+            text=content.read(),
+            content_type='image/' + ext)
 
     async def get_files(self, request):
         result = self.service.get_files()

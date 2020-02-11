@@ -2,6 +2,7 @@ import React from 'react';
 import AddOption from './AddOption';
 import Header from './Header';
 import Files from './Files';
+import Settings from './Settings';
 
 export default class FileStorageApp extends React.Component {
     state = {
@@ -26,7 +27,8 @@ export default class FileStorageApp extends React.Component {
         }));
     };
     componentDidMount() {
-        fetch('http://localhost:3000/files')
+        const settings = new Settings();
+        fetch(`${settings.schema()}://${settings.host()}:${settings.port()}/files`)
         .then(res => res.json())
         .then((data) => {
             this.setState(() => ({ files: data.map(f => f.filename) }));

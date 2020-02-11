@@ -1,6 +1,8 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const appPath = process.env.APP_PATH || '/app';
+
 module.exports = () => ({
     entry: [
         '@babel/polyfill',
@@ -34,7 +36,7 @@ module.exports = () => ({
         })
     ],
     output: {
-        path: path.join('/', 'app', 'public', 'dist'),
+        path: path.join(appPath, 'public', 'dist'),
         filename: 'bundle.js'
     }
 });
