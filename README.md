@@ -15,7 +15,6 @@ FILESTORAGE_PATH=/usr/local/temp
 cd ./docker
 docker-compose -f "docker-compose.yml" up -d --build
 ```
-2. Go to the Debug tab and run your configuration.
 ## Run CLI application
 ### Prerequisites
 1. Python - 3.7.6
@@ -47,3 +46,4 @@ python -m src.cli --help
     ]
 }
 ```
+2. Go to the Debug tab and run your configuration.
