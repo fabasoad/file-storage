@@ -1,19 +1,19 @@
-// Add option error
-.add-option-error {
+// Upload file error
+.upload-file-error {
     color: $off-white;
     font-style: italic;
     margin: $m-size 0 0 0;
     padding: 0 $m-size;
 }
 
-// Add option
-.add-option {
+// Upload file
+.upload-file {
     display: flex;
     flex-direction: column;
     padding: $m-size;
 }
 
-.add-option__input {
+.upload-file__input {
     background: $dark-blue;
     border: none;
     border-bottom: .3rem solid darken($dark-blue, 10%);
@@ -24,11 +24,11 @@
 }
 
 @media (min-width: $desktop-breakpoint) {
-    .add-option {
+    .upload-file {
         flex-direction: row;
     }
 
-    .add-option__input {
+    .upload-file__input {
         margin: 0 $s-size 0 0;
     }
 }

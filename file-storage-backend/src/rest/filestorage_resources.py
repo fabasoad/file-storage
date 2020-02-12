@@ -33,18 +33,10 @@ class FileStorageResource:
         filename = request.match_info['filename']
         ext = request.match_info['ext']
         folder = request.match_info['folder']
-        content = open(os.path.join('public', folder, '{}.{}'.format(filename, ext)), "r", encoding="utf-8")
+        content = open(os.path.join('public', folder, '{}.{}'.format(filename, ext)), "rb")
         return web.Response(
-            text=content.read(),
+            body=content.read(),
             content_type=ext_dict[ext])
-
-    async def index_img(self, request):
-        filename = request.match_info['filename']
-        ext = request.match_info['ext']
-        content = open(os.path.join('public', 'images', '{}.{}'.format(filename, ext)), "r")
-        return web.Response(
-            text=content.read(),
-            content_type='image/' + ext)
 
     async def get_files(self, request):
         result = self.service.get_files()
