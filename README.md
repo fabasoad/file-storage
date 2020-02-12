@@ -15,6 +15,8 @@ FILESTORAGE_PATH=/usr/local/temp
 cd ./docker
 docker-compose -f "docker-compose.yml" up -d --build
 ```
+> It will take a while to up and run application (around 7-10 minutes).
+3. Open `http://127.0.0.1:8080/` in browser.
 ## Run CLI application
 ### Prerequisites
 1. Python - 3.7.6
