@@ -27,7 +27,7 @@ docker-compose -f "docker-compose.yml" up -d --build
     3. FILESTORAGE_PORT - (Optional) Port where REST application is up and running. Default - `8080`.
 3. Run CLI help function to see possible options:
 ```bash
-cd file-storage-backend
+cd ./file-storage-backend
 pip install -r requirements.txt
 python -m src.cli --help
 ```
@@ -51,8 +51,9 @@ python -m src.cli --help
 ## Run REST application manually
 > In case something went wrong with Docker running
 1. Extract content from `dist.zip` to `file-storage-backend/public/` folder.
-2. Install and run Redis with password.
-3. Run the following command (Linux):
+2. Install Python 3 and Pip.
+3. Install and run Redis with password.
+4. Run the following command (Linux):
 ```bash
 export FILESTORAGE_PATH=<Path to files folder>
 export FILESTORAGE_BACKEND_HOST=127.0.0.1
@@ -60,7 +61,8 @@ export FILESTORAGE_BACKEND_PORT=8080
 export REDIS_HOST=127.0.0.1
 export REDIS_PORT=6379
 export REDIS_PASSWORD=<PASSWORD>
-cd file-storage-backend
+cd ./file-storage-backend
+pip install -r requirements.txt
 python -m src.rest
 ```
 4. Open `http://127.0.0.1:8080/` in browser.
