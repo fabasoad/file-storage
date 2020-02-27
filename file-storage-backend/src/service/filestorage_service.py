@@ -21,9 +21,9 @@ class FileStorageService:
     FORM_PARAMETER = 'file'
     FILESTORAGE_PATH = os.environ.get('FILESTORAGE_PATH', '/usr/files/')
 
-    def __init__(self):
+    def __init__(self, redis_factory=RedisFactory()):
         self.log = logging.getLogger('FileStorageService')
-        self.redis_factory = RedisFactory()
+        self.redis_factory = redis_factory
     
     def get_files(self):
         redis = self.redis_factory.create_instance()
