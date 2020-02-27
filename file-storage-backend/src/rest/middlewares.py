@@ -12,3 +12,5 @@ async def error_middleware(request, handler):
         return web.json_response({ 'error': ex.reason }, status=500)
     except web.HTTPException as ex:
         return web.json_response({ 'error': ex.reason }, status=ex.status_code)
+    except Exception as ex:
+        return web.json_response({ 'error': str(ex) }, status=500)

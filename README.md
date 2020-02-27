@@ -68,3 +68,17 @@ pip install -r requirements.txt
 python -m src.rest
 ```
 4. Open `http://127.0.0.1:8080/` in browser.
+## Run Tests
+### Backend
+#### REST Tests
+1. Run server with clean state
+2. Run the command below.
+```bash
+# export commands are optional
+export REST_SCHEMA='http' # default is 'http'
+export REST_HOST='localhost' # default is '127.0.0.1'
+export REST_PORT=8080 # default is 8080
+cd ./file-storage-backend
+pip install -r requirements.txt
+pytest ./src/tests/rest
+```
