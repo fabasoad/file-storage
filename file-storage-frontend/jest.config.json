@@ -4,8 +4,5 @@
     ],
     "snapshotSerializers": [
         "enzyme-to-json/serializer"
-    ],
-    "testPathIgnorePatterns" : [
-        "<rootDir>/src/tests/fixtures/" 
     ]
 }
