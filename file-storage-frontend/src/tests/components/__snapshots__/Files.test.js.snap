@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render empty Files correctly 1`] = `
+<div>
+  <div
+    className="widget-header"
+  >
+    <h3
+      className="widget-header__title"
+    >
+      Your files
+    </h3>
+    <button
+      className="button button--link"
+      onClick={[MockFunction]}
+    >
+      Remove all
+    </button>
+  </div>
+  <p
+    className="widget__message"
+  >
+    Please upload a file to get started
+  </p>
+</div>
+`;
+
+exports[`should render not empty Files correctly 1`] = `
+<div>
+  <div
+    className="widget-header"
+  >
+    <h3
+      className="widget-header__title"
+    >
+      Your files
+    </h3>
+    <button
+      className="button button--link"
+      onClick={[MockFunction]}
+    >
+      Remove all
+    </button>
+  </div>
+  <File
+    count={1}
+    fileName={
+      Object {
+        "file": "file1",
+        "handleDeleteFile": [MockFunction],
+        "index": 1,
+      }
+    }
+    handleDeleteFile={[MockFunction]}
+    key="[object Object]"
+  />
+  <File
+    count={2}
+    fileName={
+      Object {
+        "file": "file2",
+        "handleDeleteFile": [MockFunction],
+        "index": 2,
+      }
+    }
+    handleDeleteFile={[MockFunction]}
+    key="[object Object]"
+  />
+</div>
+`;

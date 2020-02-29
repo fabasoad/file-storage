@@ -1,0 +1,11 @@
+{
+    "setupFiles": [
+        "<rootDir>/src/tests/setupTests.js"
+    ],
+    "snapshotSerializers": [
+        "enzyme-to-json/serializer"
+    ],
+    "testPathIgnorePatterns" : [
+        "<rootDir>/src/tests/fixtures/" 
+    ]
+}

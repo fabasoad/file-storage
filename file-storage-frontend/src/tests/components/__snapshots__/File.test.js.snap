@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render File correctly 1`] = `
+<div
+  className="file"
+>
+  <p
+    className="file__text"
+  >
+    12
+    . 
+    testFileName
+  </p>
+  <button
+    className="button button--link"
+    onClick={[Function]}
+  >
+    Remove
+  </button>
+</div>
+`;

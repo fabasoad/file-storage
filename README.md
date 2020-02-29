@@ -80,5 +80,21 @@ export REST_HOST='localhost' # default is '127.0.0.1'
 export REST_PORT=8080 # default is 8080
 cd ./file-storage-backend
 pip install -r requirements.txt
-pytest ./src/tests/rest
+pytest ./src/rest_tests
+```
+#### Unit Tests
+1. Run the commands below.
+```bash
+cd ./file-storage-backend
+pip install -r requirements.txt
+pytest ./src/service
+```
+### Frontend
+#### Unit tests
+1. Install `yarn`.
+2. Run the commands below.
+```bash
+cd ./file-storage-frontend
+yarn install
+yarn run test
 ```

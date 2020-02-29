@@ -34,7 +34,7 @@ export default class FileStorageApp extends React.Component {
         }
     };
     componentDidMount() {
-        fetch(this.buildUrl())
+        this.props.fetch(this.buildUrl())
             .then(res => res.json())
             .then((data) => {
                 this.setState(() => ({ skip: true, files: data.map(f => f.filename) }));

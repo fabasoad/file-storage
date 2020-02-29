@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render FileStorageApp correctly 1`] = `
+<div
+  id="app"
+>
+  <Header
+    subtitle="All your files in one place"
+    title="File Storage"
+  />
+  <div
+    className="container"
+  >
+    <div
+      className="widget"
+    >
+      <Files
+        files={Array []}
+        handleDeleteFile={[Function]}
+        handleDeleteFiles={[Function]}
+      />
+      <UploadFile
+        handleUploadFile={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;
