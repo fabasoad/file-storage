@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render UploadFile correctly 1`] = `
+<div>
+  <form
+    className="upload-file"
+    onSubmit={[Function]}
+  >
+    <input
+      className="upload-file__input"
+      name="file"
+      type="file"
+    />
+    <button
+      className="button"
+      type="submit"
+    >
+      Upload
+    </button>
+  </form>
+</div>
+`;
